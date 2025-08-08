@@ -1,0 +1,33 @@
+yolopv2_node:
+  ros__parameters:
+    # Model parameters
+    model_path: "yolopv2_ros/model/yolopv2.pt"
+    model_type: "pytorch"
+    use_half_precision: true
+    device: "auto"
+    conf_threshold: 0.3
+    iou_threshold: 0.45
+    img_size: 640
+    
+    # ROS topics
+    input_topic: "/image_raw"
+    output_topic: "/yolopv2/detection_image"
+    
+    # Webcam parameters
+    use_webcam: false
+    webcam_id: 0
+    
+    # Processing parameters
+    max_det: 1000
+    line_thickness: 3
+    
+    # Performance parameters
+    half_precision: true
+    
+    # Visualization parameters
+    show_conf: true
+    show_labels: true
+    
+    # Lane detection parameters
+    lane_confidence: 0.5
+    drivable_confidence: 0.5

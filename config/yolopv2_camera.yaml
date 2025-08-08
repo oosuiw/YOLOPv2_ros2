@@ -1,0 +1,55 @@
+yolopv2_camera_node:
+  ros__parameters:
+    # Model settings
+    model_path: "yolopv2_ros/model/yolopv2.pt"
+    model_type: "pytorch"  # pytorch, onnx, tensorrt
+    use_half_precision: true
+    device: "auto"  # auto, cpu, cuda:0, cuda:1, etc.
+    
+    # Camera input settings
+    use_webcam: false
+    input_topic: "/image_raw"  # Changed to actual active topic
+    
+    # Visualization settings
+    show_realtime_window: true  # Show OpenCV window
+    window_resizable: true      # Allow window resizing
+    window_width: 800          # Initial window width (-1 for auto)
+    window_height: 600         # Initial window height (-1 for auto)
+    
+    # Output topics
+    output_image_topic: "/yolopv2/detection_image"
+    lane_pointcloud_topic: "/yolopv2/lane_pointcloud"
+    drivable_pointcloud_topic: "/yolopv2/drivable_pointcloud"
+    
+    # Frame settings
+    camera_frame_id: "camera"
+    
+    # Processing parameters
+    target_fps: 30.0
+    max_points_per_cloud: 1000
+    
+    # Camera parameters (adjust according to your camera)
+    camera_fx: 500.0
+    camera_fy: 500.0
+    camera_cx: 320.0  # image_width / 2
+    camera_cy: 240.0  # image_height / 2
+    
+    # 3D projection parameters
+    lane_depth: 5.0      # meters ahead for lane visualization
+    drivable_depth: 3.0  # meters ahead for drivable area
+    
+    # Segmentation visualization parameters
+    lane_alpha: 0.3      # transparency for lane overlay
+    drivable_alpha: 0.2  # transparency for drivable area overlay
+    
+    # Lane detection region (normalized coordinates 0.0-1.0)
+    lane_roi_top: 0.5     # start from middle of image
+    lane_roi_bottom: 1.0  # to bottom of image
+    lane_roi_left: 0.2    # from 20% of width
+    lane_roi_right: 0.8   # to 80% of width
+    
+    # Drivable area region
+    drivable_roi_top: 0.3
+    drivable_roi_bottom: 1.0
+    drivable_roi_left: 0.1
+    drivable_roi_right: 0.9

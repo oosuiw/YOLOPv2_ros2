@@ -1,0 +1,53 @@
+yolopv2_webcam_node:
+  ros__parameters:
+    # Model settings
+    model_path: "yolopv2_ros/model/yolopv2.pt"
+    model_type: "pytorch"  # pytorch, onnx, tensorrt
+    use_half_precision: true
+    device: "auto"  # auto, cpu, cuda:0, cuda:1, etc.
+    
+    # Webcam input settings
+    use_webcam: true
+    webcam_id: 0
+    
+    # Output topics
+    output_image_topic: "/yolopv2/detection_image"
+    lane_pointcloud_topic: "/yolopv2/lane_pointcloud"
+    drivable_pointcloud_topic: "/yolopv2/drivable_pointcloud"
+    
+    # Frame settings
+    camera_frame_id: "camera"
+    
+    # Processing parameters
+    target_fps: 30.0
+    max_points_per_cloud: 1000
+    
+    # Camera parameters (for webcam) - 1280x720 해상도에 맞춤
+    camera_fx: 640.0  # 일반적인 웹캠 초점거리
+    camera_fy: 640.0
+    camera_cx: 640.0  # 1280 / 2
+    camera_cy: 360.0  # 720 / 2
+    
+    # 3D projection parameters
+    lane_depth: 10.0     # 차선을 좀 더 앞쪽에 투사
+    drivable_depth: 10.0 # 주행 가능 영역도 동일한 깊이로
+    
+    # Visualization parameters
+    show_realtime_window: true  # show cv2.imshow for webcam
+    window_resizable: true      # Allow window resizing
+    window_width: 800          # Initial window width (-1 for auto)
+    window_height: 600         # Initial window height (-1 for auto)
+    lane_alpha: 0.3      # transparency for lane overlay
+    drivable_alpha: 0.2  # transparency for drivable area overlay
+    
+    # Detection regions (normalized coordinates 0.0-1.0)
+    lane_roi_top: 0.5     # start from middle of image
+    lane_roi_bottom: 1.0  # to bottom of image
+    lane_roi_left: 0.2    # from 20% of width
+    lane_roi_right: 0.8   # to 80% of width
+    
+    # Drivable area region
+    drivable_roi_top: 0.3
+    drivable_roi_bottom: 1.0
+    drivable_roi_left: 0.1
+    drivable_roi_right: 0.9

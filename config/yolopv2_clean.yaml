@@ -1,0 +1,25 @@
+yolopv2_clean_node:
+  ros__parameters:
+    # Model Configuration
+    model_path: "model/yolopv2.pt"      # Relative path to model file
+    use_gpu: true                        # Use GPU if available
+    use_half_precision: true             # Use FP16 for faster inference
+    
+    # Input Configuration
+    use_webcam: false                    # true: webcam, false: ROS topic
+    webcam_id: 0                         # Webcam device ID (if use_webcam: true)
+    input_topic: "/camera/image_raw"     # Input image topic (if use_webcam: false)
+    
+    # Output Configuration
+    output_topic: "/yolopv2/detection_image"  # Output image topic
+    
+    # Processing Parameters
+    conf_threshold: 0.3                  # Object detection confidence threshold
+    iou_threshold: 0.45                  # IoU threshold for NMS
+    img_size: 640                        # Model input size
+    show_window: true                    # Show OpenCV window (webcam mode)
+    
+    # PointCloud Configuration
+    publish_pointclouds: true            # Publish lane/drivable area as pointclouds
+    max_points: 1000                     # Maximum points per pointcloud
+    depth: 5.0                          # Assumed depth for 3D projection (meters)

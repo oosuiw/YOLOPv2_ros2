@@ -80,7 +80,7 @@ pip install torch torchvision opencv-python numpy pyyaml
 ### 1. Clone the Package
 ```bash
 cd ~/your_workspace/src
-git clone <repository_url> yolopv2_ros
+git clone https://github.com/oosuiw/YOLOPv2_ros2.git
 ```
 
 ### 2. Install Dependencies

@@ -100,7 +100,7 @@ source install/setup.bash
 모델 파일을 `model/yolopv2.pt`에 위치시키거나:
 ```bash
 # 예시 - 실제 모델 다운로드 방법에 따라 수정
-wget -O model/yolopv2.pt https://github.com/CAIC-AD/YOLOPv2/releases/download/V0.0.1/yolopv2.pt
+[wget -O model/yolopv2.pt https://github.com/CAIC-AD/YOLOPv2/releases/download/V0.0.1/yolopv2.pt](https://github.com/CAIC-AD/YOLOPv2/releases/download/V0.0.1/yolopv2.pt)
 ```
 
 ## Quick Start

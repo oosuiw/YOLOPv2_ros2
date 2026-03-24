@@ -1,6 +1,6 @@
 # YOLOPv2 ROS Package Cleanup Guide
 
-## ✅ 새로 추가된 깔끔한 파일들.
+## ✅ 새로 추가된 깔끔한 파일들..
 
 ### 1. `yolopv2_ros/yolopv2_clean_node.py`
 - **통합된 메인 노드**: 모든 기능을 하나의 깔끔한 파일에 통합
